@@ -10,6 +10,34 @@
 
 HINSTANCE ghInstance;
 
+std::string GetModulePath()	// keep backslash at the end
+{
+    char iniFilePath[MAX_PATH];
+    GetModuleFileNameA(ghInstance, iniFilePath, MAX_PATH);
+    char* dot = strrchr(iniFilePath, '\\');
+    dot[1] = 0;
+
+    return iniFilePath;
+}
+
+#ifdef _WIN64
+#define ARCH_DIR "\\64\\"
+#else
+#define ARCH_DIR "\\32\\"
+#endif
+
+ISciterAPI* customSciterLoader()
+{
+    std::string path = GetModulePath() + ARCH_DIR + "sciter.dll"; //  TEXT("sciter.dll");
+    HMODULE hm = LoadLibraryA(path.c_str()); //LoadLibrary(MODEL "/" TEXT("sciter.dll"));
+    if (hm) {
+        SciterAPI_ptr sciterAPI = (SciterAPI_ptr)GetProcAddress(hm, "SciterAPI");
+        if (sciterAPI)
+            return sciterAPI();
+    }
+    return nullptr;
+}
+
 bool supported_file(const wchar_t* loading_file)
 {
   if(!loading_file)
@@ -45,6 +73,8 @@ HWND CALLBACK ListLoad(HWND ParentWin, char* FileToLoad, int ShowFlags)
 
 HWND CALLBACK ListLoadW(HWND ParentWin, wchar_t* FileToLoad, int ShowFlags)
 {
+  _SAPI(customSciterLoader());
+  
   if(!supported_file(FileToLoad))
     return false;
 

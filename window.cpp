@@ -96,6 +96,8 @@ json::value window::launch_debug()
 
 bool window::load_file(const wchar_t* uri)
 {
+    // $mm TODO: load_html() for memory documents
+    // $mm ALSO exam "scroll-manner"
   dom::element root = get_root();
   json::value re = root.call_function("loadFileToView", json::value(uri));
   if(!re.get(false))
