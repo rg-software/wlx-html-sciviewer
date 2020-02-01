@@ -6,3 +6,4 @@ plugin/scview.wlx
 sciviewer.vcxproj.user
 sciviewer.aps
 plugin/sciviewer.wlx
+x64/**

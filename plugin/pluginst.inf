@@ -1,4 +1,5 @@
 [plugininstall] 
- description=HTML Viewer based Sciter core.
- type=wlx
- file=scview.wlx 
+description=Sciviewer HTML Viewer.
+type=wlx
+file=sciviewer.wlx 
+defaultdir=plugins\wlx\Sciviewer
