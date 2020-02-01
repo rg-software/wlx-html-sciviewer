@@ -2,3 +2,4 @@ syntax: glob
 .vs/**
 Release/**
 scview.vcxproj.user
+plugin/scview.wlx
