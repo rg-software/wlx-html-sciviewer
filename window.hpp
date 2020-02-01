@@ -1,7 +1,18 @@
 #pragma once
+//#define __STDC_WANT_SECURE_LIB__ 0
 
-#include <sciter3/sciter-x-host-callback.h>
-#include <sciter3/sciter-x-behavior.h>
+//#include <windows.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <tchar.h>
+//#include <sciter-x-dom.hpp>
+#include "sciter/sciter-x.h"
+
+
+//#include <sciter-x-host-callback.h>
+//#include <sciter-x-behavior.h>
+//#include <sciter-x.h>
 
 class window:
   public sciter::host<window>,

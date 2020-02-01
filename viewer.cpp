@@ -1,10 +1,12 @@
 #include "window.hpp"
 #include "listplug.h"
 
-#define _USING_V110_SDK71_
+//#define _USING_V110_SDK71_
 #include <atlcomcli.h>
 #include <memory>
-#include <wincodec.h>
+//#include <wincodec.h>
+
+#include <d2d1.h>
 
 HINSTANCE ghInstance;
 
@@ -112,7 +114,7 @@ HBITMAP CALLBACK ListGetPreviewBitmapW(const wchar_t* FileToLoad, int width, int
     return nullptr;
 
   CComPtr<ID2D1Factory> factory;
-  SciterD2DFactory(&factory);
+  SciterD2DFactory((IUnknown **)&factory);  // $mm TODO: double check
   if(!factory)
     return nullptr;
 

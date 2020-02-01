@@ -1,8 +1,3 @@
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#include <tchar.h>
-#include <sciter3/sciter-x-dom.hpp>
-
 #include "window.hpp"
 
 using namespace sciter;
@@ -95,7 +90,7 @@ json::value window::launch_debug()
   dom::element root = get_root();
   dom::element frame = root.find_first("frame#content");
   assert(frame.is_valid());
-  sciter::inspect(frame);
+//  sciter::inspect(frame); // $mm TODO: inspect() to return
   return true;
 }
 
