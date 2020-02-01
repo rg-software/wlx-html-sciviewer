@@ -3,3 +3,6 @@ syntax: glob
 Release/**
 scview.vcxproj.user
 plugin/scview.wlx
+sciviewer.vcxproj.user
+sciviewer.aps
+plugin/sciviewer.wlx

@@ -11,10 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B96F4CCF-6237-4DC8-9BD4-E3EE6ED42785}</ProjectGuid>
+    <ProjectGuid>{E9AA72B7-D081-4D70-9E98-2487F5A0DA30}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>scview</RootNamespace>
+    <RootNamespace>sciviewer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>sciviewer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -42,8 +43,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(IncludePath);f:\usr\lib\gui\htmlayout\include</IncludePath>
-    <LibraryPath>$(LibraryPath);f:\usr\lib\gui\htmlayout\lib</LibraryPath>
+    <IncludePath>$(IncludePath);</IncludePath>
+    <LibraryPath>$(LibraryPath);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -65,7 +66,7 @@
       <ModuleDefinitionFile>viewer.def</ModuleDefinitionFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(TargetPath)" f:\tools\TotalCmd6\plugins\LS\ScView\scview.wlx /y</Command>
+      <Command>copy "$(TargetPath)" plugin\$(ProjectName).wlx</Command>
       <Message>copying...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -86,7 +87,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>viewer.def</ModuleDefinitionFile>
@@ -115,7 +116,7 @@
     <None Include="viewer.def" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="scview.rc" />
+    <ResourceCompile Include="sciviewer.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\back.png" />
