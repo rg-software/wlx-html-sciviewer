@@ -90,14 +90,15 @@ json::value window::launch_debug()
   dom::element root = get_root();
   dom::element frame = root.find_first("frame#content");
   assert(frame.is_valid());
-//  sciter::inspect(frame); // $mm TODO: inspect() to return
+  //  sciter::inspect(frame); // $mm this function is removed, but we don't need it anyway
   return true;
 }
 
 bool window::load_file(const wchar_t* uri)
 {
-    // $mm TODO: load_html() for memory documents
-    // $mm ALSO exam "scroll-manner"
+  // $mm TODO: handle markdown and selection
+  // $mm ALSO exam "scroll-manner"
+  
   dom::element root = get_root();
   json::value re = root.call_function("loadFileToView", json::value(uri));
   if(!re.get(false))

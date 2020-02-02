@@ -144,7 +144,7 @@ HBITMAP CALLBACK ListGetPreviewBitmapW(const wchar_t* FileToLoad, int width, int
     return nullptr;
 
   CComPtr<ID2D1Factory> factory;
-  SciterD2DFactory((IUnknown **)&factory);  // $mm TODO: double check
+  SciterD2DFactory((IUnknown **)&factory);
   if(!factory)
     return nullptr;
 
