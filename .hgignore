@@ -7,3 +7,7 @@ sciviewer.vcxproj.user
 sciviewer.aps
 plugin/sciviewer.wlx
 x64/**
+Debug/**
+plugin/README.md
+sciviewer.zip
+plugin/sciviewer.wlx64
