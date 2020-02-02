@@ -8,7 +8,7 @@ msbuild sciviewer.sln /t:Build /p:Configuration=Release;Platform=Win32;UseEnv=tr
 call "%VCINSTALLDIR%\Auxiliary\Build\vcvarsall.bat" x64
 msbuild sciviewer.sln /t:Build /p:Configuration=Release;Platform=x64;UseEnv=true
 
-del /Q plugin\sciviewer.zip
+del /Q sciviewer.zip
 copy /y README.md plugin\
 
 powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::CreateFromDirectory('plugin', 'sciviewer.zip'); }"
