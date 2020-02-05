@@ -1,10 +1,9 @@
 <html>
 <head>
 	<style>
-		frame#content
-		{
-		  behavior: htmlarea; /* to make it selectable */
-  		}
+        frame {
+            behavior: htmlarea; /* to make it selectable */
+        }
 
 		#toolbar 
 		{
@@ -38,41 +37,22 @@
 	</style> 
 
 	<script type="text/tiscript">
-		
-		include "md.tis";
-		
-		const md = $(#markdown);
-		const pv = $(#preview);
-		
-		/*function preview() {
-		var html = markdown.parse(md.value);
-		pv.html = html;
-		$(pre#debug).text = html;
-		}
-		
-		md.on("change", preview.debounce(500ms));
-	
-		preview(); */
-	
-	</script>
-
-	<script type="text/tiscript">
-    var back      = self.$(#toolbar>button#back);
-    var forward   = self.$(#toolbar>button#forward);
-    var reload		= self.$(#toolbar>button#reload);
+//    var back      = self.$(#toolbar>button#back);
+ //   var forward   = self.$(#toolbar>button#forward);
+  //  var reload		= self.$(#toolbar>button#reload);
     var content   = self.$(frame#content);
     var currentFile;
 
-    back.onClick    = :: content.goBack();
-    forward.onClick = :: content.goForward();
+  //  back.onClick    = :: content.goBack();
+  //  forward.onClick = :: content.goForward();
     
-		self.$(button#inspector).onClick = :: view.launchDebugView();
-		self.$(button#reload).onClick = :: reloadFile();
+	//	self.$(button#inspector).onClick = :: view.launchDebugView();
+	//	self.$(button#reload).onClick = :: reloadFile();
 
 		function loadFileToView(fn) {
 			currentFile = "file://" + fn;
 			content.load(currentFile);
-			reload.state.disabled = false;
+//			reload.state.disabled = false;
 			var first = content.first;
 			if(first)
 				first.state.focus = true;
@@ -124,23 +104,24 @@
 		}
 		
 		// onLoad
-		fillVersion();
+		// fillVersion();
 
     
 	</script>
 	
 </head>
 <body>
-	<!-- TOOLBAR: uncomment to bring it back!
-		<div id="toolbar" role="toolbar">
-    <button #back title="Go backward" accesskey="LEFT" disabled />
-    <button #forward title="Go forward" accesskey="RIGHT" disabled />
-		<button #reload title="Reload" accesskey="F5" disabled/>
+	<!-- TOOLBAR: uncomment to bring it back! -->
+<!--	<div id="toolbar" role="toolbar">
+		<button #back title="Go backward" accesskey="LEFT" disabled />
+		<button #forward title="Go forward" accesskey="RIGHT" disabled />
+		<button #reload title="Reload" accesskey="F5" disabled />
 		<button #inspector title="DOM Inspector (F12)" accesskey="F12" />
-		<div name="version">ver <span id="version"/></div>
+		<div name="version">ver <span id="version" /></div>
 	</div>
--->
-	<frame id="content" src="" history>
-	</frame>
+	-->
+		<frame id="content" src="" history>
+		</frame>
+	
 </body>
 </html>

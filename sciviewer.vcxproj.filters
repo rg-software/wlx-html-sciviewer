@@ -37,7 +37,9 @@
     <None Include="viewer.def">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="res\default.htm" />
+    <None Include="res\default.htm">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="sciviewer.rc">

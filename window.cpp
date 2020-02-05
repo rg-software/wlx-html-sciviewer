@@ -98,12 +98,30 @@ bool window::load_file(const wchar_t* uri)
 {
   // $mm TODO: handle markdown and selection
   // $mm ALSO exam "scroll-manner"
-  
+
+   // $mm TODO: load file into string, form base url, and call JS load function
+
+    // return __super::load_file(uri); // load via global function
+
+//    return ().get(false);
+    //return __super::load_html(LPCBYTE pb, UINT cb, LPCWSTR uri = 0).get(false);
+
+    // load via javascript (should be sufficient)
   dom::element root = get_root();
+//  MessageBox(NULL, L"Calling JS", L"", 0);
   json::value re = root.call_function("loadFileToView", json::value(uri));
-  if(!re.get(false))
-    re = __super::load_file(uri);
+
+  // $mm TODO: use Hoedown here. JS markdown of Sciter is really basic
+//  json::value re = root.call_function("loadMarkdown", json::value(uri));
+
+  if (!re.get(false))
+  {
+   //   MessageBox(NULL, L"Calling super", L"", 0);
+      re = __super::load_file(uri);
+
+  }
   return re.get(false);
+
 }
 
 void window::ensure_min_size()
